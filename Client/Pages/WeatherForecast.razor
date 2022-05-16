@@ -1,0 +1,28 @@
+﻿@page "/weatherforecasts"
+@attribute [Authorize]
+
+<h3>Weather Forecasts</h3>
+
+<div class="row">
+    @if (WeatherForecasts.Any())
+    {
+        @foreach (var weather in WeatherForecasts)
+        {
+            <div class="col-6 col-sm-12 col-md-6 col-lg-4 col-xl-4 mh-25 mb-4">
+                <div class="card shadow-sm rounded">
+                    <div class="card-body">
+                        <h5 class="card-title"><b>@weather.Date</b></h5>
+                        <p class="card-text">@weather.TemperatureC</p>
+                    </div>
+                    <div class="card-footer text-muted">
+                        <span>Summary: @weather.Summary</span>
+                    </div>
+                </div>
+            </div>
+        }
+    }
+    else
+    {
+        <p>No weather forecasts available</p>
+    }
+</div>
